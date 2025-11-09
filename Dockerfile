@@ -3,9 +3,15 @@ FROM ubuntu:latest
 RUN apt-get update && apt-get install -y \
     python3.10 \
     python3-pip \
-    git
+    python3-dev \
+    build-essential \
+    git\
+&& pip3 install --no-cache-dir -i https://pypi.org/simple PyYAML \
+&& apt-get purge -y build-essential python3-dev \
+&& apt-get autoremove -y \
+&& rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install --no-cache-dir -i https://pypi.org/simple PyYAML
+#RUN pip3 install --no-cache-dir -i https://pypi.org/simple PyYAML
 #RUN pip3 install PyYAML
 
 COPY feed.py /usr/bin/feed.py
