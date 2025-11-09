@@ -5,8 +5,8 @@ RUN apt-get update && apt-get install -y \
     python3-pip \
     python3-dev \
     build-essential \
-    git\
-&& pip3 install --no-cache-dir -i https://pypi.org/simple PyYAML \
+    git \
+&& pip3 install --no-cache-dir PyYAML \
 && apt-get purge -y build-essential python3-dev \
 && apt-get autoremove -y \
 && rm -rf /var/lib/apt/lists/*
