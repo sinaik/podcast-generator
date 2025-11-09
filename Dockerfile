@@ -5,6 +5,7 @@ RUN apt-get update && apt-get install -y \
     python3-pip \
     git
 
+docker build . --no-cache --progress=plain
 RUN pip3 install PyYAML
 
 COPY feed.py /usr/bin/feed.py
